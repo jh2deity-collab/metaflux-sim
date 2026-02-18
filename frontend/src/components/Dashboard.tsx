@@ -16,6 +16,7 @@ import ProductionEnvelopeChart from './ProductionEnvelopeChart';
 import ProcessingStatus from './ProcessingStatus';
 import PremiumModal from './PremiumModal';
 import SimulationTimeline from './SimulationTimeline';
+import ByproductDashboard from './ByproductDashboard';
 import axios from 'axios';
 import { Microscope, ArrowLeft, Play, Timer, Database, FileDown, Loader2, Zap, Layers, CheckCircle2, XCircle, Info, X, AlertCircle } from 'lucide-react';
 import html2canvas from 'html2canvas';
@@ -36,6 +37,7 @@ export default function DashboardPage({ modelId, onBack }: { modelId: string, on
         byproducts: Array<{ id: string; value: number }>;
         carbonLossIndex?: number;
         shadowPrices?: Record<string, number>;
+        byproduct_analysis?: any;
     } | null>(null);
     const [baselineResults, setBaselineResults] = useState<{
         growthRate: number;
@@ -69,6 +71,7 @@ export default function DashboardPage({ modelId, onBack }: { modelId: string, on
     const [isPlaying, setIsPlaying] = useState(false);
     const [playbackSpeed, setPlaybackSpeed] = useState(1); // 1x, 2x, 5x, 10x
     const [currentFluxes, setCurrentFluxes] = useState<Record<string, number> | null>(null);
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'analytics'>('dashboard');
 
     const [mapSize, setMapSize] = useState<'min' | 'mid' | 'max'>('mid');
     const [notification, setNotification] = useState<{ message: string, type: 'success' | 'info' | 'error' } | null>(null);
