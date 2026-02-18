@@ -1,0 +1,11 @@
+[
+    {
+        "time": 0.0,
+        "biomass": 0.1,
+        "glucose": 10.0,
+        "growth_rates": 0.0,
+        "byproducts": {},
+        "flux_history": {},
+        "toxicity_alerts": []
+    }
+]
